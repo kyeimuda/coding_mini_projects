@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+'''
+ This is a game were you guess 6 number between 1 and 99(like the lottey).
+ If numbers guessed are less than 3. You losses
+ iIf guesses are more than 3 you win number of guessed numbers times a weigth of 3 times 100 points
+'''
+import random
+
+number = [ random.randint(1, 99) for i in range(6) ]
+guessedNumbers = []
+results = []
+
+try:
+    for i in range(6):
+        guessedNumbers.append(int(input(f'Enter the number (NO.{i + 1}): ')))
+except:
+    print('You must enter a number')
+
+for i in guessedNumbers:
+    if i in number:
+        results.append(i)
+
+if len(results) < 3:
+    print(f'Your numbers are {guessedNumbers}')
+    print(f'The lottory numbers are {guessedNumbers}')
+    print(f'You lost the lottery')
+else:
+    print(f'Your umbers are {guessedNumbers}')
+    print(f'The lottory numbers are {guessedNumbers}')
+    print(f'Hurry you have won {(len(guessedNumbers * 2)) * 100}')
+
